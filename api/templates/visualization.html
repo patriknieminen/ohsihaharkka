@@ -1,0 +1,90 @@
+<div id="container"></div>
+<div id="container1"></div>
+
+<script src="https://code.highcharts.com/highcharts.src.js"></script>
+<script>
+    Highcharts.chart('container', {
+        chart: {
+            type: 'column'
+        },
+        title: {
+            text: 'Maintenance season in sports fields in Tampere'
+        },
+        xAxis: {
+            categories: ['Summer', 'Winter', 'Summer and Winter']
+        },
+        series: [{
+            name: 'Sports field data',
+            data: [{{summer}}, {{winter}}, {{summerwinter}}]
+        }]
+    });
+</script>
+
+<script src="https://code.highcharts.com/highcharts.src.js"></script>
+
+<script>
+        Highcharts.chart('container1', {
+        chart:{
+            plotBackgroundColor: null,
+            plotBorderWidth: null,
+            plotShadow: false,
+            type: 'pie'
+        },
+        title: {
+            text: 'Surface material in sports fields in Tampere'
+        },
+        tooltip: {
+            pointFormat: '{series.name}: <b>{point.percentage:1f}%</b>'
+        },
+        accessibility:{
+            point:{
+                valueSuffix: '%'
+            }
+        },
+        plotOptions: {
+            pie: {
+                allowPointSelect: true,
+                cursor: 'pointer',
+                dataLabels: {
+                    enabled: false
+                },
+                showInLegend: true
+            }
+        },
+        series: [{
+            name:'Percentage',
+            colorByPoint: true,
+            data: [{
+                name: 'Grass',
+                y: {{grass}},
+                sliced: true,
+                selected: true
+            }, {
+                name: 'Sand',
+                y: {{sand}},
+                sliced: true,
+                selected: true
+            }, {
+                name: 'Turf',
+                y: {{turf}},
+                sliced: true,
+                selected: true
+            }, {
+                name: 'Asphalt',
+                y: {{asphalt}},
+                sliced: true,
+                selected: true
+            }, {
+                name: 'Not Known',
+                y: {{not_known}},
+                sliced: true,
+                selected: true
+            }]
+        }]});
+</script>
+
+
+<h3><a href="/api">Back</a></h3>
+
+
+
